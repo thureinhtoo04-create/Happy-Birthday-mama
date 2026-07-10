@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.birthday-title {
+    font-size: 4rem;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: bounce 2s infinite;
+    margin-bottom: 10px;
+}
+
+.mama-text {
+    font-size: 3.5rem;
+    color: #ffd700;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: pulse 1.5s infinite;
+    margin-bottom: 30px;
+}
+
+.balloons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.balloon {
+    width: 80px;
+    height: 100px;
+    border-radius: 50% 50% 50% 0;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+.balloon.red {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    animation-delay: 0s;
+}
+
+.balloon.blue {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    animation-delay: 0.2s;
+}
+
+.balloon.yellow {
+    background: linear-gradient(135deg, #ffd93d, #ffb700);
+    animation-delay: 0.4s;
+}
+
+.balloon.green {
+    background: linear-gradient(135deg, #6bcf7f, #52b788);
+    animation-delay: 0.6s;
+}
+
+.balloon.purple {
+    background: linear-gradient(135deg, #c77dff, #9d4edd);
+    animation-delay: 0.8s;
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    width: 2px;
+    height: 40px;
+    background: #999;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin: 30px 20px;
+    animation: slideIn 0.8s ease-out;
+}
+
+.message {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.message-secondary {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.surprise-btn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: bold;
+}
+
+.surprise-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.surprise-btn:active {
+    transform: scale(0.95);
+}
+
+.cake {
+    position: relative;
+    margin-top: 30px;
+    font-size: 5rem;
+    animation: wobble 0.5s ease-in-out infinite;
+}
+
+.cake-body {
+    display: inline-block;
+}
+
+.hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.heart {
+    position: absolute;
+    color: #ff69b4;
+    font-size: 2rem;
+    opacity: 0;
+    animation: floatUp 2s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wobble {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-2deg);
+    }
+    75% {
+        transform: rotate(2deg);
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px) translateX(100px);
+    }
+}
+
+@media (max-width: 768px) {
+    .birthday-title {
+        font-size: 2.5rem;
+    }
+    
+    .mama-text {
+        font-size: 2rem;
+    }
+    
+    .card {
+        padding: 30px;
+        max-width: 90%;
+    }
+    
+    .message {
+        font-size: 1.1rem;
+    }
+}
